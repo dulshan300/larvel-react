@@ -1,6 +1,6 @@
 # Simple CRUD user application with React + Laravel
 ### React : front end
-### Laravel : backend apoi
+### Laravel : backend api
 
 ## Tech Stack
 - Laravel
