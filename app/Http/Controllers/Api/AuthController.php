@@ -37,15 +37,13 @@ class AuthController extends Controller
         $credentials = $request->validated();
         if (!Auth::attempt($credentials)) {
             return $this->error([
-                'message'=>'Provided email or password is incorrect'
-            ],422);
-            // return response([
-            //     'errors' => ['message'=>'Provided email or password is incorrect']
-            // ],422);
+                'message' => 'Provided email or password is incorrect'
+            ], 422);
+
         }
 
         $user = Auth::user();
-        $token =  $user->createToken('main')->plainTextToken;
+        $token = $user->createToken('main')->plainTextToken;
         return response(compact('user', 'token'));
     }
 
@@ -56,5 +54,7 @@ class AuthController extends Controller
         if ($user)
             $user->currentAccessToken()->delete();
         return response('', 204);
+
+
     }
 }

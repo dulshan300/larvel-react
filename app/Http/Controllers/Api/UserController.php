@@ -14,6 +14,7 @@ class UserController extends Controller
 {
 
     use HttpResponse;
+
     /**
      * Display a listing of the resource.
      *
@@ -27,21 +28,21 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUserRequest  $request
+     * @param \App\Http\Requests\StoreUserRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUserRequest $request)
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
-        $user =  User::create($data);
+        $user = User::create($data);
         return response("", 204);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -52,8 +53,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUserRequest  $request
-     * @param  \App\Models\User  $user
+     * @param \App\Http\Requests\UpdateUserRequest $request
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request, User $user)
@@ -69,7 +70,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
